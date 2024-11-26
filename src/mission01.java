@@ -11,14 +11,26 @@ import java.util.*;
 public class mission01 {
 
     public static int[] arrMake(){
-        int[] arr = new int[9];
-        for(int i=0;i<9;i++){
-
+        int arr[] = new int[8];
+        int num[] = {1,2,3,4,5,6,7,8};
+        for(int i=0;i<8;i++){
+            int index = (int)(Math.random()*8);
+            if(num[index] == 0){
+                while(num[index] == 0){
+                    index = (int)(Math.random()*8);
+                }
+            }
+            arr[i] = num[index];
+            num[index] = 0;
         }
         return arr;
     }
 
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
+        int arr[] = arrMake();
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i] + " ");
+        }
     }
 }
